@@ -1,0 +1,24 @@
+{
+  "name": "aula05-tdd-project-pt01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "yarn mocha -w --parallel \"./{,!(node_modules)/**/}*.test.js\"",
+    "test:cov": "yarn nyc mocha --parallel \"./{,!(node_modules)/**/}*.test.js\"",
+    "seed": "node ./seed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "4",
+    "faker": "^5.1.0",
+    "mocha": "8",
+    "nyc": "15",
+    "sinon": "9"
+  }
+}

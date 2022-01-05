@@ -1,0 +1,16 @@
+[
+  {
+    "id": "966b85bd-327f-471d-9f66-2c60e2e9e9b0",
+    "name": "Element",
+    "releaseYear": 2021,
+    "available": true,
+    "gasAvailable": true
+  },
+  {
+    "id": "63813504-5ae5-4e2b-9ec3-8260a9f46ff3",
+    "name": "V90",
+    "releaseYear": 2021,
+    "available": true,
+    "gasAvailable": true
+  }
+]
