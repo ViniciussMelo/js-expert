@@ -10,20 +10,17 @@ const DEFAULT_OPTION = {
 
 class File {
   static async csvToJSON(filePath) {
-    const content = await File.getFileContent(filePath);
+    const content = await readFile(filePath, 'utf-8');
     const validation = File.isValid(content);
+
     if(!validation.valid) throw new Error(validation.error);
 
     const users = File.parseCSVToJSON(content);
     return users;
   }
 
-  static async getFileContent(filePath) {
-    return (await readFile(filePath)).toString('utf8');
-  }
-
   static isValid(csvString, options = DEFAULT_OPTION) {
-    const [header, ...fileWithoutHeader] = csvString.split('\n').map((srt) => srt.replace(/\r/g, ''));
+    const [header, ...fileWithoutHeader] = csvString.split(/\r?\n/).map((srt) => srt.replace(/\r/g, ''));
 
     const isHeaderValid = header === options.fields.join(',');
 
@@ -50,18 +47,21 @@ class File {
   }
 
   static parseCSVToJSON(csvString) {
-    const lines = csvString.split('\n').map((srt) => srt.replace(/\r/g, ''));
+    const lines = csvString.split(/\r?\n/);
     const firsLine = lines.shift();
     const header = firsLine.split(',');
+
     const users = lines.map(line => {
       const columns = line.split(',');
-      let user = {};
+      const user = {};
 
       for(const index in columns) {
-        user[header[index]] = columns[index];
+        user[header[index]] = columns[index].trim();
       }
+      
       return new User(user);
-    })
+    });
+
     return users
   }
 }
