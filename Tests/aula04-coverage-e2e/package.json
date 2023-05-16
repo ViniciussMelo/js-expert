@@ -4,15 +4,20 @@
   "description": "",
   "main": "api.js",
   "scripts": {
-    "test": "yarn mocha -w --parallel *.test.js",
-    "test:cov": "yarn nyc mocha --parallel *.test.js"
+    "start": "node src/api.js",
+    "test": "yarn mocha --parallel src/*.test.js",
+    "test:dev": "yarn mocha -w --parallel src/*.test.js",
+    "test:cov": "yarn nyc mocha --parallel src/*.test.js"
+  },
+  "engines": {
+    "node": "18"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "8",
+    "mocha": "10.2.0",
     "nyc": "15",
-    "supertest": "6"
+    "supertest": "6.3.3"
   }
 }

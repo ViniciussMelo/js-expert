@@ -1,0 +1,24 @@
+Testes não devem depender de serviços externos ou internet.
+
+aula01:
+mocks:
+
+aula02:
+stubs: usados para substituir algum comportamento do sistema por objetos estaticos
+ex:
+req para serviço de CEP.
+usando stubs a gente modifica o retorno da função, ao invés de ir para internet, olha para o mock.
+Quando tem integração, deve ser testado apenas a lógica, a parte de terceiros a gente parte do principio que está ok
+
+aula03:
+spies: observam as funções, podendo ver a quantidade de vezes que foram chamadas e os parametros passados
+
+aula04:
+e2e tests: testar o comportamento da aplicação do ponto de vista do usuário
+se não existir nenhum tipo de teste na aplicação, esse é o mais recomendado pois poupa tempo pelo fato de não ter que testar método por meto, mas sim rota por rota
+
+CURL:
+// pegar o status code da request
+curl -i localhost:3000/contact
+// post com body
+curl -X POST --data '{"username": "123", "password": 123}' localhost:3000/login

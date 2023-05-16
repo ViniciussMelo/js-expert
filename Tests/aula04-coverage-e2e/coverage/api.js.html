@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>26/26</span>
+                <span class='fraction'>24/24</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>26/26</span>
+                <span class='fraction'>24/24</span>
             </div>
         
             
@@ -112,32 +112,42 @@
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -148,7 +158,9 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
@@ -161,54 +173,60 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const http = require('http');
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const { once } = require('events');
+const http = require('http');
 &nbsp;
-const DEFAULT_USER = { username: 'vini', password: '123' };
+const DEFAULT_USER = { 
+  username: 'vini', 
+  password: '123' 
+};
 &nbsp;
 const routes = {
-  '/contact:GET': (request, response) =&gt; {
+  '/contact:get': (request, response) =&gt; {
     response.write('Contact us page');
     return response.end();
   },
-  '/login:POST': async (request, response) =&gt; {
+  '/login:post': async (request, response) =&gt; {
     // response é um iterator!
-    for await (const data of request) {
-      const user = JSON.parse(data);
+    // for await (const data of request) {
+    // }
+&nbsp;
+      // pegar o data através do once
+      const user = JSON.parse(await once(request, 'data'));
       console.log('user', user);
       if(
         user.username !== DEFAULT_USER.username ||
         user.password !== DEFAULT_USER.password
       ) {
         response.writeHead(401);
-        response.write('Logging failed!');
-        return response.end();
+        return response.end('Logging failed!');
       }
 &nbsp;
-      response.write('Logging has succeeded!');
-      return response.end();
-    }
+      return response.end('Logging has succeeded!');
   },
   default: (request, response) =&gt; {
-    response.write('Hello World!');
-    return response.end();
+    response.writeHead(404);
+    return response.end('Not found!');
   }
 }
 &nbsp;
 const handler = (request, response) =&gt; {
   const { url, method } = request;
-  const routeKey = `${url}:${method}`;
-  console.log('routeKey', routeKey)
+  const routeKey = `${url.toLowerCase()}:${method.toLowerCase()}`;
+  
+  console.log('routeKey', routeKey);
+&nbsp;
   const chosen = routes[routeKey] || routes.default;
   
   response.writeHead(200, {
     'Content-Type': 'text/html'
-  })
+  });
 &nbsp;
   return chosen(request, response);
 }
 &nbsp;
 const app = http.createServer(handler)
-                .listen(3000, () =&gt; console.log('app is running!'));
+                .listen(3000, () =&gt; console.log('app is running at 3000!'));
 &nbsp;
 module.exports = app;</pre></td></tr></table></pre>
 
@@ -217,7 +235,7 @@ module.exports = app;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener">istanbul</a>
-                at Tue Dec 21 2021 09:41:26 GMT-0300 (Horário Padrão de Brasília)
+                at Tue May 16 2023 15:23:22 GMT-0300 (Horário Padrão de Brasília)
             </div>
         </div>
         <script src="prettify.js"></script>
