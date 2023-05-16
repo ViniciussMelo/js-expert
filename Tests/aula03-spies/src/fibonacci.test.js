@@ -1,4 +1,4 @@
-const sinon = require('sinon');
+const { createSandbox } = require('sinon');
 const assert = require('assert');
 
 const Fibonacci = require('./fibonacci');
@@ -8,6 +8,8 @@ const Fibonacci = require('./fibonacci');
 // 0,1,1
 // 0,1,1,2,3
 
+const sinon = createSandbox();
+
 (async () => {
   {
     const fibonacci = new Fibonacci();
@@ -16,12 +18,13 @@ const Fibonacci = require('./fibonacci');
     // generators retornam iterators (.next)
     // existem 3 formas de ler os dados
     // usando as funções .next, for await e rest/spread
-    for await (const i of fibonacci.execute(3)) {};
+    for (const i of fibonacci.execute(3)) {};
 
     // nosso algorítimo vai começar do zero!
-    const expectedCallCount = 4
+    const expectedCallCount = 4;
 
-    assert.deepStrictEqual(spy.callCount, expectedCallCount);
+    // strictEqual -> tipos que não são objetos
+    assert.strictEqual(spy.callCount, expectedCallCount, 'Call count does not match with expected call count!');
   }
   {
     const fibonacci = new Fibonacci();
@@ -45,7 +48,7 @@ const Fibonacci = require('./fibonacci');
     });
 
     // verificando na 2 posição (3 vez) que chama a função, quais parametros foram passados
-    assert.deepStrictEqual(args, expectedParams);
-    assert.deepStrictEqual(results, expectedResult);
+    assert.deepStrictEqual(args, expectedParams, 'Params are not equals!');
+    assert.deepStrictEqual(results, expectedResult, 'Arrays are not equals!');
   }
 })();
