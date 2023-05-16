@@ -1,7 +1,7 @@
 Testes não devem depender de serviços externos ou internet.
 
 aula01:
-mocks:
+mocks: usado para guardar os resultados em objetos fixos
 
 aula02:
 stubs: usados para substituir algum comportamento do sistema por objetos estaticos
@@ -16,6 +16,9 @@ spies: observam as funções, podendo ver a quantidade de vezes que foram chamad
 aula04:
 e2e tests: testar o comportamento da aplicação do ponto de vista do usuário
 se não existir nenhum tipo de teste na aplicação, esse é o mais recomendado pois poupa tempo pelo fato de não ter que testar método por meto, mas sim rota por rota
+
+aula05:
+TDD: pratica que tem como foco criar os casos de testes antes de iniciar o desenvolvimento
 
 CURL:
 // pegar o status code da request

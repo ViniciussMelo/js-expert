@@ -121,6 +121,8 @@ describe('CarService Suite Tests', () => {
     const dueDate = "10 de novembro de 2020";
     
     const now = new Date(2020, 10, 5);
+
+    // every function that calls new Date() will use fake timers
     sandbox.useFakeTimers(now.getTime());
 
     sandbox.stub(
