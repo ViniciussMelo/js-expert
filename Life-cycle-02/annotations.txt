@@ -1,0 +1,2 @@
+this:
+  Quando precisar delegar uma função que será executada no futuro deve sempre atualizar o contexto this, usando a função bind.
