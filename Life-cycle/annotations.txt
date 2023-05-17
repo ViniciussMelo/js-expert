@@ -1,0 +1,29 @@
+strict mode:
+  Usado por padrão em transpiladores como typescript e babel;
+  Facilita a escrita do JS "seguro";
+  Serve para validar:
+  Alguns erros silenciosos do JS como atribuir valor a variável que não existe;
+  Ações relativamente 'inseguras' como obter acesso ao objeto global;
+
+call stack (Pilha de execução de funções):
+  Pilha de operações onde é armazenada a sequencia de ações que o programa vai executar linha por linha;
+  First in, last out;
+  Guarda dados de tipo de valor primitivo;
+
+
+Memory heap (Pilha de memória):
+  Lugar onde são armazenados os endereços de memória que podem ser apontados pelo call stack
+  para trabalhar os valores de váriaveis, objetos, funções, etc...
+  Guarda dados de tipo de referência que podem crescer dinamicamente (array, funções);
+
+Coerção de tipos / Conversão de tipos:
+  Processo de conversão de qualquer valor para qualquer outro tipo (ex: string -> number);
+  Só existem 3 tipos de conversão:
+    > String
+    > Boolean
+    > Number
+  Existem 2 tipos de coerção:
+    Implicita:
+      Geralmente usada com operadores (ex: 123 + '').
+    Explicita:
+      Chama a função (ex: String(123));
