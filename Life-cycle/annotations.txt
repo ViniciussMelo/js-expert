@@ -27,3 +27,12 @@ Coerção de tipos / Conversão de tipos:
       Geralmente usada com operadores (ex: 123 + '').
     Explicita:
       Chama a função (ex: String(123));
+
+Prototype Chain:
+  Prototype chain nada mais é que o processo de pesquisa, navegando entre classes derivadas até encontrar a propriedade desejada;
+  Internamente, tudo no javascript é um objeto;
+  A palavra-chave Class é uma syntax sugar, internamente a implementação vira um objeto;
+  Herança no JS é realizada através do prototype, também chamada como herança de protótipos;
+  Prototype chain:
+    Quando tentamos procurar pela existência de alguma propriedade do objeto, o motor do JS vai primeiro verificar o objeto para verificar se a propriedade existe e caso não exista, ele olha para o prototype do objeto. Caso não exista ele procura em todas as instancias que foram herdadas até o úiltimo prototype que é igual a null.
+    Se chegar no último prototype (último grau da instancia) e não encontrar a propriedade, retorna undefined.
