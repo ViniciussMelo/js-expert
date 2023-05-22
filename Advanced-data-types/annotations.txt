@@ -1,0 +1,25 @@
+generators/iterators:
+  DADOS SOB DEMANDA;
+  Objetivo: Fazer com que as funções virem listas e que entreguem os dados sob demanda;
+  Para delegar a execução de função, deve ser usado o * na chamada yield;
+  Conseguimos obter todos os dados de um generator usando os iteradores (spread, Array.from, for of);
+  Pode conter uma ou mais chamadas usando o yield;
+
+map:
+  Quando usar ao invés de Objetos:
+    Quando precisa adicionar chaves com frequencia;
+    Precisa validar se a chave existe de forma semantica;
+    Quando precisa que o objeto funcione como um banco de dados (chave sendo um objeto e tem um conjunto de dados );
+    Quando precisa limpar a referência após o uso.
+
+WeakMap:
+  Tipo de referência fraca
+  Os dados só vão ficar nele enquanto ele existir em memória
+  Quando só precisamos pegar a chave, saber se o valor existe ou deletar
+
+reflect:
+  Garantir a semantica e segurança em objetos
+
+observer:
+  Design pattern
+  Prega que você pode adicionar observadores nas entidades, e quando ocorrer uma alteração, todos serão modificados
