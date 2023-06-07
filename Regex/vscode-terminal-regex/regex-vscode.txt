@@ -1,0 +1,51 @@
+123.123.123-14
+321.123.345-20
+200.300.500.19
+
+// ---- replace ---- //
+
+regex101.com
+-> ^\d{3}.\d{3}.\d{3}-\d{2}$
+
+// ^ -> pegar somente o início de cada linha
+// \d -> digito
+// \d{3} -> primeiros 3 digitos
+// $ -> para dizer que a expressão regular terminou na linha
+
+-> [.-]
+
+// pegar todos pontos e traços
+
+// -------- //
+
+// ---- transform to JSON ---- //
+
+-> replace: ^(\w+),\s(\w+)$ por
+-> {firstName: "$2", lastName: "$1"}
+
+// group 0 = full match
+// group 1 = lastName
+// group 2 = firstName
+
+// ^ -> pegar somente o início de cada linha
+// \w -> pegar word character (cada letra separada)
+// \w+ -> pegar tudo até que encontre algo que não seja uma letra ou número
+// (\w+) -> para separar o que foi encontrado em um grupo (ex: Melo é um grupo, Vinicius é outro)
+// \s -> pegar o espaço
+// \S -> não pegar o espaço
+// $ -> para dizer que a expressão regular terminou na linha
+
+Melo, Vinicius
+Gomes, Laila
+Wendel, Erick
+// -------- //
+
+// ---- transform to markdown ---- //
+
+-> replace: \[(.*?)]\(([http|https]).*?\) por
+-> <a href="$2">$1</a>
+
+// \[ -> pesquisa literal pelo character
+// \[(.*)] -> pegar tudo que tem dentro do bracket.
+// ? -> manda parar após encontrar o primeiro resultado, no caso o ] 
+// [http|https] -> para dizer que quer um ou outro

@@ -1,0 +1,2 @@
+npm run start | tee text.txt
+- pega o resultado e cria um arquivo
