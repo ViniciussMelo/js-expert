@@ -1,0 +1,39 @@
+design pattern x anti pattern:
+- Design pattern: 
+  - Solução geral e reutilizável para resolver um problema recorrente
+  - Descrição ou template sobre como resolver o problema
+  - Boas práticas
+- Anti pattern:
+  - Respostas que até resolvem problemas, mas não são eficazes e podem trazer mais riscos do que benefícios para a aplicação
+  - Padrão não indicado
+
+dry:
+- Don't Repeat Yourself: criar funções reutilizáveis para não ter o mesmo código em vários lugares.
+
+kiss:
+- Keep It Simple Stupid: manter o mais simples possível.
+
+yagni:
+- You Aren't Gonna Need It: você não vai precisar disso agora. focar no prazo e prioridade.
+
+clean code:
+- Especificar uma convenção entre os desenvolvedores.
+- Repository: 
+  - clean-code-javascript: https://github.com/ryanmcdermott/clean-code-javascript
+
+solid:
+- Single responsibility:
+  - Responsabilidade única.
+- Open closed
+  - Sistema deve ser aberto para expansão mas fechados para modificação.
+  - Se for adicionar algo novo, não deve interferir no que já funciona.
+- Liskov Substitution
+  - Classes filhas podem herdar o comportamento da classe base, e alterar o comportamento da classe base se possível.
+  - Chamar o super e fazer algo a mais depois.
+- Interface Segregation
+  - Criar interfaces para abstrair métodos
+- Dependency Inversion
+  - Dependencias devem depender de abstrações ao invés de implementações
+
+Padrão factory:
+- Server para abstrair a complexidade da criação de objetos e evitar duplicidade
