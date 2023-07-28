@@ -15,9 +15,9 @@ class Database {
     return this;
   }
 
-  async find (query) {
+  async find(query) {
     await this.sleep(100);
-    
+
     return [{ name: 'ViniciusMelo' }]
   }
 }

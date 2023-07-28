@@ -32,6 +32,7 @@ solid:
   - Chamar o super e fazer algo a mais depois.
 - Interface Segregation
   - Criar interfaces para abstrair métodos
+  - Em um CRUD podemos criar interfaces de escrita e leitura, assim cada classe escolhe qual implementar.
 - Dependency Inversion
   - Dependencias devem depender de abstrações ao invés de implementações
 
