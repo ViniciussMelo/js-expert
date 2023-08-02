@@ -38,3 +38,8 @@ solid:
 
 Padrão factory:
 - Server para abstrair a complexidade da criação de objetos e evitar duplicidade
+
+Padrão abstract factory:
+- Gerenciar a integridade de funções entre plataformas;
+- Criar a mesmaa funcionalidade para diferentes plataformas usando factory (server, web, linux, windows);
+- Extensão do factory.
