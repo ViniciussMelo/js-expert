@@ -43,3 +43,29 @@ Padrão abstract factory:
 - Gerenciar a integridade de funções entre plataformas;
 - Criar a mesmaa funcionalidade para diferentes plataformas usando factory (server, web, linux, windows);
 - Extensão do factory.
+
+Test Data Builder:
+- Dar uma melhor flexibilidade pra criar objetos, podendo alterar os parametros do objeto.
+
+Object Mother:
+- Mesma ideia do facade;
+- Encapsulando a complexidade do padrão builder;
+- Tem métodos que são factories que geram instância completa de cada objeto.
+
+Resumindo builder, fulent API e facade:
+- Builder: 
+  - Criacional;
+  - Criar objetos complexos de formas simples e metódicas;
+  - Extende o padrão Fluent API, porém o builder é usado pra criar objetos complexos sob demanda e suas funções podem ser
+  chamadas de forma independente da ordem. Já o Fluent API serve pra construir fluxos complexos e sequenciais (como um pipeline);
+- Fluent Interface / Fluent API:
+  - Desenhado para usar o método chain (this.#processor.extract().divide().build());
+  - Cada função retorna uma instância;
+  - Step by step;
+  - Por fim chama a função que retorna o resultado dessa instância (geralmente chamada de build que é uma factory).
+  - Serve pra construir fluxos complexos e sequenciais (como um pipeline);
+- Facade:
+  - Padrão estrutural;
+  - Abstrai toda a complexidade da classe Fluent API;
+  - Ao invés de sempre chamar assim em todo lugar: "this.#processor.extract().divide().build()", disponibiliza uma função
+  que abstrai essa chamada: getPeopleFromPDF: () => this.#processor.extract().divide().build();
