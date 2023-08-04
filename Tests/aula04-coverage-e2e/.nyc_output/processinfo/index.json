@@ -1,1 +1,0 @@
-{"processes":{"6001889b-233b-4527-9225-64fdb4d83fbf":{"parent":"db8cd01d-ee4c-40f7-b03a-021d4480261b","children":[]},"db8cd01d-ee4c-40f7-b03a-021d4480261b":{"parent":null,"children":["6001889b-233b-4527-9225-64fdb4d83fbf"]}},"files":{"/home/vinicius/Documentos/Repositories/js-expert/Tests/aula04-coverage-e2e/src/api.js":["6001889b-233b-4527-9225-64fdb4d83fbf"]},"externalIds":{}}
