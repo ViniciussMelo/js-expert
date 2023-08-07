@@ -1,4 +1,8 @@
-Padrão Strategy
+Padrão Strategy:
 - Sugere que você tenha várias formas de fazer uma mesma coisa e separar cada uma dessas formas em classes (estratégias);
 - Calsses possuem a mesma assinatura;
 - Open closed principle.
+
+Padrão Observable:
+- "Você não me chama, eu chamo você";
+- Cria uma lista de observadores que precisam ser notificados quando determinada ação acontecer (via eventos);
