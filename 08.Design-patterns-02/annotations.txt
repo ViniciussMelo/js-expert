@@ -6,3 +6,8 @@ Padrão Strategy:
 Padrão Observable:
 - "Você não me chama, eu chamo você";
 - Cria uma lista de observadores que precisam ser notificados quando determinada ação acontecer (via eventos);
+
+Padrão Template Method:
+- Garantir um fluxo de métodos definindo uma sequência a ser executada;
+- Criação de uma superclasse (geralmente abstrata) que define o esqueleto da função como uma sequencia de passos.
+Sendo esses passos implementados pelas classes filhas, garantindo a ordem e a sequência de execução.
