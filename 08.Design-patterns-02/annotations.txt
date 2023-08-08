@@ -11,3 +11,11 @@ Padrão Template Method:
 - Garantir um fluxo de métodos definindo uma sequência a ser executada;
 - Criação de uma superclasse (geralmente abstrata) que define o esqueleto da função como uma sequencia de passos.
 Sendo esses passos implementados pelas classes filhas, garantindo a ordem e a sequência de execução.
+
+Decorators:
+- Adiciona comportamentos a funcionalidades existentes sem mexer no que já está funcionando;
+- Adiciona uma camada de abstração e quando quiser usar ela, é só adicionar o decorator(@).
+
+Adapter:
+- Criar uma assinatura única;
+- Mantem a compatibilidade entre diferentes funções que fazem a mesma coisa, porém com nomes diferentes;
