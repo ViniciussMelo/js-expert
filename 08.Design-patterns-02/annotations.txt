@@ -19,3 +19,10 @@ Decorators:
 Adapter:
 - Criar uma assinatura única;
 - Mantem a compatibilidade entre diferentes funções que fazem a mesma coisa, porém com nomes diferentes;
+
+Como escolher um padrão de projeto:
+- Criar projetos isolados no github aplicando cada um dos padrões estudados;
+- Fazer o mesmo projeto usando diferentes padrões de projeto (para ver se encaixa ou não);
+- Refactoring.guru;
+- Entender as categorias de padrão de projeto;
+- Refatorar projetos existenes;
