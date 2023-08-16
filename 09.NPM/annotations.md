@@ -52,6 +52,17 @@
   - npm i vai pegar sempre o mais recente, por isso tem que usar o npm update
   pra respeitar o range e pegar o wanted.
 
+## NPM workspaces
++ ```npm init -w string-util -y --scope @viniciussmelo```
+  - comando para criar um projeto com um workspace
+  - string-util: nome do workspace
++ ```npm i -D nodemon -w string-util```
+  - instalar dependencia dentro do workspace desejado
++ ```npm i -D c8 --workspaces```
+  - instalar em todos os workspaces
++ ```npm unpublish -f --workspaces```
+  - Remover todos os pacotes do ar
+
 ## Utils: 
 + Remover pacote do package.json e package.lock:
   - ```npm rm @viniciusspmelo/fluentsql``` -> nome do pacote
