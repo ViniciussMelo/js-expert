@@ -1,0 +1,32 @@
+repl:
+- Comandos para debugar a aplicação sem precisar usar o vscode:
+  - ```node inspect index.mjs```:
+    - inicia o inspect
+  - Após iniciado o inspect:
+    - ```list(100)```:
+      - lista 100 linhas do arquivo desejado
+    - ```setBreakpoint(13)```:
+    - ```sb(13)```:
+      - adiciona um breakpoint na linha 13
+    - ```cont```:
+    - ```c```:
+      - dar um 'resume' na aplicação
+    - ```exec result```:
+      - pegar o valor da variável result
+    - ```.save debug.log```:
+      - salvar tudo que foi executado no terminal
+    - ```r```:
+      - start/restart
+    - ```clearBreakpoint('index.mjs', 15)```:
+      - limpar o breakpoint passando o arquivo e a linha
+    - ```next```:
+      - ir para o próximo passo
+    - ```repl```:
+      - ver as variáveis
+    - ```breakpoints```:
+      - listar os breakpoints
+  - usando o ```debugger``` no código também é possível debugar
+  - ```node --experimental-repl-await```:
+    - permitir a execução de promises
+  - ```node --inspect index.mjs```:
+    - Abre um websocket para poder usar o console em outro lugar
